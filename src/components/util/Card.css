@@ -1,0 +1,20 @@
+.card {
+    width: 137px;
+    margin-right: 40px;
+}
+
+.card__head {
+    height: 204px;
+    background-color: #1e1e1e;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    transition: background-color 0.2s ease;
+}
+
+.card__head:hover {
+    background-color: #272727;
+}
