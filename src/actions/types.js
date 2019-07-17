@@ -1,0 +1,2 @@
+export const FETCH_JSON_FEED = "FETCH_JSON_FEED"
+export const CLEAR_JSON_FEED = "CLEAR_JSON_FEED"

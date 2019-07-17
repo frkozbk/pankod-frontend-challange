@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-
-export const reducers={
-    dummu:()=>1
-}
+import jsonReducer from './jsonReducer'
+export default combineReducers({
+    data:jsonReducer
+})
