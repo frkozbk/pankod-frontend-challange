@@ -7,7 +7,7 @@ import "./Card.css";
 const Card = ({backgroundUrl,title}) => {
     return (
         <>
-      <Link to="/series">
+      <Link to="/#">
         <div className="card">
           <div
             className="card__head"

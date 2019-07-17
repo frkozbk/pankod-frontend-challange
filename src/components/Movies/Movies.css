@@ -1,0 +1,12 @@
+.movies-container {
+    padding: 0 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.movies-container a {
+    color: #1e1e1e;
+}
