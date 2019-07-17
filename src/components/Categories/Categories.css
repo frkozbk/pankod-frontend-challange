@@ -1,0 +1,41 @@
+.categories-container {
+    padding: 0 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.categories-container a {
+    color: #1e1e1e;
+}
+
+.categories-card {
+    width: 137px;
+    margin-right: 40px;
+}
+
+.categories-card__head {
+    background-image: url("./clapperboard.png");
+    height: 204px;
+    background-color: #1e1e1e;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    transition: background-color 0.2s ease;
+}
+
+.categories-card__head:hover {
+    background-color: #272727;
+}
+
+.categories-card__head h1 {
+    color: #fff;
+    line-height: 32px;
+    font-weight: 600;
+    color: #fdfdfd;
+}
