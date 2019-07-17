@@ -42,14 +42,14 @@ const Footer = () => {
         </p>
         <div className="footer-icons">
           <div className="footer-icons__social">
-            <Link to="www.facebook.com">
+            <Link to="/facebook">
               <img id="facebook" src={facebookwhite} alt="facebook-white" />
             </Link>
 
-            <Link to="www.twitter.com">
+            <Link to="/twitter">
               <img id="twitter" src={twitterwhite} alt="twitter-white" />
             </Link>
-            <Link to="www.instagram.com">
+            <Link to="/instagram">
               <img id="instagram" src={instagramwhite} alt="instagram-white" />
             </Link>
           </div>

@@ -3,9 +3,8 @@ import { sortByYearAsc } from "./sortByYearAsc";
 import { sortByTitleDesc } from "./sortByTitleDesc";
 import {sortByTitleAsc} from "./sortedByTitleAsc"
 import { sortByDefault } from './sortByDefault';
- const sort = (data,categories,sortType) => {
-    debugger
-    switch (sortType) {
+const sort = (data,categories,sortType) => {
+     switch (sortType) {
         case "SORT_BY_YEAR_DESC":
             return sortByYearDesc(data,categories)
         case "SORT_BY_YEAR_ASC":

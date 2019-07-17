@@ -8,7 +8,7 @@ import {fetchJsonFeed} from '../../actions/index.js'
 import sort from '../../util'
 class Movies extends Component {
   state={
-    seacrh:'',
+    search:'',
     selected:'SORT_BY_DEFAULT'
   }
   componentDidMount() {
@@ -28,13 +28,22 @@ class Movies extends Component {
   }
   
   render() {
-    console.log(this.state.data)
-    let Cards
-       if(this.state.data){
-          Cards = this.state.data.map((item,index) => {
-            return <Card key={index} title={item.title}  backgroundUrl={item.images['Poster Art'].url}/>
+    let Content;
+      if(this.state.data&&this.state.search.length<3){
+          Content = this.state.data.map((item,index) => {
+          return <Card key={index} title={item.title}  backgroundUrl={item.images['Poster Art'].url}/>
           })
-       }
+      }else if(this.state.data&&this.state.search.length>=3){
+          let searchResult= this.state.data.filter((item) => {
+
+          return item.title.toLowerCase().includes(this.state.search.toLowerCase())
+      })
+        Content = !searchResult.length ? <h1>Sonuç Bulunamadı</h1> : searchResult.map((item,index) => {
+          return <Card key={index} title={item.title}  backgroundUrl={item.images['Poster Art'].url}/>
+        })
+      }else {
+      Content = <h1>Yükleniyor</h1>
+      }
     return (
       <>
         <Title title="Movies" />
@@ -65,7 +74,7 @@ class Movies extends Component {
     </section>
         <section className="movies">
           <div className="movies-container">
-          {this.state.data ? Cards : <h1>Yükleniyor</h1>}
+          {Content}
           </div>
         </section>
       </>

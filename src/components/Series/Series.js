@@ -31,28 +31,31 @@ class Series extends Component {
         sortedData=sort(this.props.data,'series',this.state.selected)
         this.setState({data:sortedData})
       }
+    }
       
-        
-        
-
-        
-      }
-      
-    
     render() {
-      
-      let Cards
-       if(this.state.data){
-          Cards = this.state.data.map((item,index) => {
+      let Content;
+      if(this.state.data&&this.state.search.length<3){
+          Content = this.state.data.map((item,index) => {
             return <Card key={index} title={item.title}  backgroundUrl={item.images['Poster Art'].url}/>
           })
-       }
-       
+      }else if (this.state.data&&this.state.search.length>=3){
+      
+      let searchResult= this.state.data.filter((item) => {
+
+      return item.title.toLowerCase().includes(this.state.search.toLowerCase())
+      })
+      Content = !searchResult.length ? <h1>Sonuç Bulunamadı</h1> : searchResult.map((item,index) => {
+          return <Card key={index} title={item.title}  backgroundUrl={item.images['Poster Art'].url}/>
+        })
+      }else {
+      Content = <h1>Yükleniyor</h1>
+      }
       return (
         <>
         <Title title="Series" />
-          <section className="sort">
-        <div className="sort-container">
+        <section className="sort">
+          <div className="sort-container">
             <div className="search-box">
                 <input 
                     type="text" 
@@ -66,9 +69,6 @@ class Series extends Component {
                     <i className="fas fa-search"></i>
                 </div>
             </div>
-
-
-
             <select value={this.state.selected} onChange={(e)=>{this.setState({selected:e.target.value})}} className="sortby">
                 <option  value="SORT_BY_DEFAULT" disabled selected hidden>Sort by</option>
                 <option  value="SORT_BY_YEAR_DESC">Sort by year desc</option>
@@ -76,14 +76,13 @@ class Series extends Component {
                 <option  value="SORT_BY_TITLE_DESC">Sort by title in desc</option>
                 <option  value="SORT_BY_TITLE_ASC">Sort by title in asc</option>
             </select>
-        </div>
-    </section>
-          
-          <section className="series">
-            <div className="series-container">
-              {this.state.data ? Cards : <h1>Yükleniyor</h1>}
-            </div>
-          </section>
+          </div>
+        </section>
+        <section className="series">
+          <div className="series-container">
+              {Content}
+          </div>
+        </section>
         </>
       );
     }
