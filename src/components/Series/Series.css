@@ -1,3 +1,65 @@
+.sort {
+    width: 100%;
+    height: 80px;
+}
+
+.sort-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1200px;
+    height: 80px;
+    margin: 0 auto
+}
+
+.search-box {
+    width: 423px;
+    display: flex;
+}
+
+#search {
+    border: 0;
+    width: 378px;
+    height: 30px;
+    background: #fff;
+    box-shadow: 0px 3px 10px 0px rgba(194, 194, 194, 1);
+    font-size: 18px;
+    line-height: 15px;
+    padding-left: 10px;
+    color: #b4b4b4;
+}
+
+.search-icon {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 30px;
+    background: #017efe;
+    color: #b4b4b4;
+}
+
+.search-icon i {
+    color: #fff;
+}
+
+.sortby {
+    width: 286px;
+    height: 30px;
+    font-size: 18px;
+    line-height: 15px;
+    color: #b4b4b4;
+    border: 0;
+    box-shadow: 0px 3px 10px 0px rgba(194, 194, 194, 1);
+}
+
+option {
+    font-size: 18px !important;
+
+
+}
+
 .series {
     margin-bottom: 20px;
 }
