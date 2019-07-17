@@ -4,7 +4,11 @@ import Card from '../Card/Card'
 import {connect} from 'react-redux'
 
 import {fetchJsonFeed} from '../../actions/index.js'
+
+import sort from '../../util'
 import "./Series.css";
+
+
 
 
 class Series extends Component {
@@ -17,33 +21,24 @@ class Series extends Component {
       await this.props.fetchJsonFeed();
     }
     
-    componentDidUpdate(prevProps){
+    componentDidUpdate(prevProps,prevState){
+      let sortedData
       if(this.props.data!==prevProps.data){
-        let filteredData=this.props.data
-        // .filter(item=>{
-          
-        //   return item.programType='series' && item.releaseYear>=2010
-        // })
-        let slicedData=filteredData.slice(0,21)
-        let sortedData = slicedData.sort((a,b) =>{
-          var first = a.title.toLowerCase()
-        var second = b.title.toLowerCase()
-        let comparison = 0;
-        if (first > second) {
-          comparison = 1;
-        } else if (first < second) {
-          comparison = -1;
-        }
-        return comparison;
-          
-        })
-        
-        
-
+        sortedData =sort(this.props.data,'series',this.state.selected)
+        this.setState({data:sortedData})
+      }
+      if(prevState.selected !==this.state.selected){
+        sortedData=sort(this.props.data,'series',this.state.selected)
         this.setState({data:sortedData})
       }
       
-    }
+        
+        
+
+        
+      }
+      
+    
     render() {
       
       let Cards

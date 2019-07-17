@@ -4,40 +4,27 @@ import Title from "../Title/Title";
 import Card from "../Card/Card";
 import {connect} from 'react-redux'
 import {fetchJsonFeed} from '../../actions/index.js'
+
+import sort from '../../util'
 class Movies extends Component {
   state={
     seacrh:'',
-    selected:''
+    selected:'SORT_BY_DEFAULT'
   }
   componentDidMount() {
       
     this.props.fetchJsonFeed();
   }
-  componentDidUpdate(prevProps){
-    
-    if(this.props.data!==prevProps.data){
-      let filteredData=this.props.data.filter(item => {
-        return item.programType==='movie' &&item.releaseYear >=2010
-      })
-      let sortedData =filteredData.sort((a,b) =>{
-        var first = a.title.toLowerCase()
-        var second = b.title.toLowerCase()
-        let comparison = 0;
-        if (first > second) {
-          comparison = 1;
-        } else if (first < second) {
-          comparison = -1;
-        }
-        return comparison;
-        
-      })
-      let slicedData=sortedData.slice(0,21)
-          .slice(0,21)
-      
-      
-      this.setState({data:slicedData})
-      console.log(this.state.data)
-    }
+  componentDidUpdate(prevProps,prevState){
+    let sortedData
+      if(this.props.data!==prevProps.data){
+        sortedData =sort(this.props.data,'movie',this.state.selected)
+        this.setState({data:sortedData})
+      }
+      if(prevState.selected !==this.state.selected){
+        sortedData=sort(this.props.data,'movie',this.state.selected)
+        this.setState({data:sortedData})
+      }
   }
   
   render() {
@@ -51,6 +38,7 @@ class Movies extends Component {
     return (
       <>
         <Title title="Movies" />
+        
         <section class="sort">
         <div class="sort-container">
             <div class="search-box">
