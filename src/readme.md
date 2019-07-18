@@ -9,7 +9,7 @@ Install dependencies
 npm install
 ```
 
-Instal dependencies
+Install dependencies
 
 ```
 npm start
