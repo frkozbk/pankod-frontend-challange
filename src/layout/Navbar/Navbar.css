@@ -1,5 +1,4 @@
 nav {
-    padding: 0 30px;
     width: 100%;
     height: 63px;
     background-color: #017efe;
@@ -13,12 +12,12 @@ nav {
     justify-content: space-between;
     align-items: center;
     color: #fff;
+    position: relative;
 }
 
 .navbar-title {
     font-size: 33px;
     font-weight: 600;
-    line-height: 39px;
     color: #fff;
 }
 
@@ -43,4 +42,31 @@ nav {
     background-color: #424242;
     padding: 5px 15px;
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0, 66);
+    white-space: nowrap;
+}
+
+@media only screen and (max-width:530px) {
+    .navbar-title {
+        font-size: 30px;
+        white-space: nowrap;
+    }
+
+}
+
+@media only screen and (max-width:480px) {
+    .navbar-title {
+        font-size: 24px;
+    }
+}
+
+@media only screen and (max-width:400px) {
+    .navbar-title {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width:360px) {
+    .navbar-title {
+        font-size: 14px;
+    }
 }

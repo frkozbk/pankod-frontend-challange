@@ -1,5 +1,5 @@
 export const sortByTitleDesc = (data,categories ) =>{
-    debugger
+    
     let filteredData=data.filter(item=>{
         return item.programType===categories
     })
