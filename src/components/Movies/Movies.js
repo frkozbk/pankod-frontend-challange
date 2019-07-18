@@ -6,7 +6,7 @@ import {connect} from 'react-redux'
 import {fetchJsonFeed} from '../../actions/index.js'
 
 import sort from '../../util'
-class Movies extends Component {
+export class Movies extends Component {
   state={
     search:'',
     selected:'SORT_BY_DEFAULT'
@@ -38,7 +38,7 @@ class Movies extends Component {
 
           return item.title.toLowerCase().includes(this.state.search.toLowerCase())
       })
-        Content = !searchResult.length ? <h1>Sonuç Bulunamadı</h1> : searchResult.map((item,index) => {
+        Content = !searchResult.length  ? <h1>Sonuç Bulunamadı</h1> : searchResult.map((item,index) => {
           return <Card key={index} title={item.title}  backgroundUrl={item.images['Poster Art'].url}/>
         })
       }else {
@@ -48,9 +48,9 @@ class Movies extends Component {
       <>
         <Title title="Movies" />
         
-        <section class="sort">
-        <div class="sort-container">
-            <div class="search-box">
+        <section className="sort" id="sort">
+        <div className="sort-container">
+            <div className="search-box">
             <input 
                     type="text" 
                     placeholder="Search" 
@@ -59,8 +59,8 @@ class Movies extends Component {
                     value={this.state.search}
                     onChange={(e) => {this.setState({[e.target.name] : e.target.value})}}
                 />
-                <div class="search-icon">
-                    <i class="fas fa-search"></i>
+                <div className="search-icon">
+                    <i className="fas fa-search"></i>
                 </div>
             </div>
             <select value={this.state.selected} onChange={(e)=>{this.setState({selected:e.target.value})}} className="sortby">

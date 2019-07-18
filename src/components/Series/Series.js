@@ -11,7 +11,7 @@ import "./Series.css";
 
 
 
-class Series extends Component {
+export class Series extends Component {
     state={
       search:'',
       selected:"SORT_BY_DEFAULT"
@@ -78,7 +78,7 @@ class Series extends Component {
             </select>
           </div>
         </section>
-        <section className="series">
+        <section className="series" date-test="series">
           <div className="series-container">
               {Content}
           </div>
